@@ -1,35 +1,83 @@
-name: Build and deploy
+name: Build and Deploy
 
 on:
   push:
-    branches:
-      - "main"
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  deploy:
+  build:
+    name: Build Project
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          submodules: recursive
+
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-      - name: Install and build
-        run: |
-          git submodule init
-          git submodule update
-          export NODE_OPTIONS="--max-old-space-size=4096"
-          pnpm install
-          pnpm build
-      - name: Publish artifact code
-        uses: actions/upload-artifact@v4
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
         with:
-          name: dist
+          node-version: 24
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build VitePress
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: pnpm build
+
+      - name: Save PR Number (If PR)
+        if: github.event_name == 'pull_request'
+        run: echo ${{ github.event.pull_request.number }} > docs/.vitepress/dist/pr_number.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-dist
           path: docs/.vitepress/dist
-      - name: Deploy to GitHub branch
+          retention-days: 1
+
+  deploy-prod:
+    name: Deploy to Prod
+    needs: build
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: build-dist
+          path: dist
+
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: docs/.vitepress/dist
+          folder: dist
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}
+          command: pages deploy dist --project-name=neo-rlewiki
+          packageManager: npm

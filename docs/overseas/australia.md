@@ -29,12 +29,9 @@ Monash IVF做冻精的费用分为两部分：采集collection fee和寄存stora
 
 ### 环境
 
-基本上大部分接受过此类平等教育的同学都会比较开放，会使用正确的代词和姓名。部分学校的宿舍是混住，因而宿舍问题也会少很多。
-
+澳大利亚的学校的大部分信息系统可以使用 preferred name. 部分学校的宿舍是混住，因而宿舍问题也会少很多。
+大学入学的登记表填写性别可以选择male, female, others. 性别不会出现在之后大学生活的任何场合（除医疗），包括学生证上。可以选择自己的pronoun，其他人也会尊重并遵守。
 已知皇家墨尔本理工大学（RMIT）有第三卫生间。
 Monash University Clayton校区，Victoria University Footscray Park校区都有queer room, 有各自queer群体组成的学生社团。
-大学入学的登记表填写性别可以选择male, female, others. 性别不会出现在之后大学生活的任何场合（除医疗），包括学生证上。可以选择自己的pronoun，其他人也会尊重并遵守。
 
-## 评论与反馈
 
-- 澳大利亚的学校的大部分信息系统也可以使用 preferred name。此外，在悉尼的 Oxford Street 也值得一去。

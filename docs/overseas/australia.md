@@ -21,7 +21,7 @@ author: μ, hanbao
 
 1. Medical Hub @ RMIT 的 Dr Ben Ooi，可用汉语官话（Mandarin）和粤语（Cantonese）交流，预约首诊时提出HRT，会先帮你预约一次血液检测（Blood test），然后帮你约好复诊，如血液检测无明显异常且知情同意即可开具HRT处方，总耗时2星期不到。GP诊断用Medibank（留学生医保的一种）可部分报销，血液检测是免费的。
 2. Box Hill Centro Clininc的Dr Ling Li 李医生，支持英语和普通话，非常trans-friendly。第一次面诊之前要先给clinic打电话预约Dr Ling Li的long consultation，就诊当天就可以做血检，clinic里就有个检测中心，下次面诊的时候就能看到结果。Private billing, 有Medicare的话大概AUD 36-37的out-of-pocket。
-3. Equinox Clinic (https://equinox.org.au/) 是墨尔本最大的bulk billing跨性别诊所。（2026 May update: 由于新患者排队太长，现已不接受新患者，可在诊所官网查看是否接收新患者）
+3. Equinox Clinic ([equinox.org.au](https://equinox.org.au)) 是墨尔本最大的bulk billing跨性别诊所。（2026 May update: 由于新患者排队太长，现已不接受新患者，可在诊所官网查看是否接收新患者）
 
 ### 生育力保存 Fertility Preservation
 
@@ -37,5 +37,3 @@ Monash IVF做冻精的费用分为两部分：采集collection fee和寄存stora
 
 已知皇家墨尔本理工大学（RMIT）有第三卫生间。
 Monash University Clayton校区，Victoria University Footscray Park校区都有queer room, 有各自queer群体组成的学生社团。
-
-
